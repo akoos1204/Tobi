@@ -1,0 +1,24 @@
+{
+  "name": "tobias",
+  "version": "1.0.0",
+  "description": "Just another multipurpose discord bot handled with discord.js v14.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Tobias",
+    "Discord-bot",
+    "DJSV14",
+    "NodeJS"
+  ],
+  "author": "Akos",
+  "license": "MIT",
+  "dependencies": {
+    "@discordjs/rest": "^2.3.0",
+    "discord-api-types": "^0.37.90",
+    "discord.js": "^14.15.3",
+    "dotenv": "^16.4.5",
+    "fs": "^0.0.1-security"
+  }
+}
