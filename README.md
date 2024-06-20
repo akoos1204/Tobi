@@ -17,3 +17,5 @@ Install the depencies with `npm i` command.
 
 ### Step 3
 Now you can run the bot anytime you want for anything with `node .` or `node src/index.js` commands.
+
+***If you need any help here's my Discord username:akoos_***
