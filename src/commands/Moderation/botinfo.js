@@ -1,11 +1,12 @@
 const { SlashCommandBuilder, EmbedBuilder, Embed} = require("discord.js");
-const { execute } = require("./clean");
+const Discord = require('discord.js')
+const os = require('os')
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("botinfo")
         .setDescription("Display's the bot information in an embed."),
-    async execute(client, interaction) {
+    async execute(interaction, client) {
     try {
         const guildsCache = client.guilds.cache;
         if (!guildsCache) {
@@ -47,14 +48,14 @@ module.exports = {
             .setTitle("Tobi's Information")
             .setTimestamp()
             .addFields(
-                { name: "Basic Information", value: `- Developer: \`@akoos_\`\n- DevID: \`901131294476484689\`\n\n- Server Count: ${interaction.client.guilds.cache.size}\n- User Count: ${servercount}\n- Prefix: \`?\`\n- Invite link: [Click Here](https://discord.com/oauth2/authorize?client_id=1253076040570634240&permissions=8&integration_type=0&scope=bot+applications.commands)\n- Repository: [Github](https://github.com/akoos1204/Tobi)\n- Bot Version: \`v1.0.1\`` },
-                { name: "Statistics", value: `- Uptime: ${uptime}\n- API Latency: ${Math.round(interaction.client.ws.ping)}ms\n- Memory Usage: ${memoryUsed} MB\n- Memory Total: ${memoryTotal} GB\n- CPU Usage: ${usagePercent}%\n- Discord.js: \`v${discordjsVersion}\`\n- Node.js: \`v${process.version}\`` }
+                { name: "Basic Information", value: `- Developer: \`@akoos_\`\n- DevID: \`901131294476484689\`\n- Server Count: ${interaction.client.guilds.cache.size}\n- User Count: ${servercount}\n- Invite link: [Click Here](https://discord.com/oauth2/authorize?client_id=1253076040570634240&permissions=8&integration_type=0&scope=bot+applications.commands)\n- Repository: [Github](https://github.com/akoos1204/Tobi)\n- Bot Version: \`v1.0.1\`` },
+                { name: "Statistics", value: `- Uptime: ${uptime}\n- API Latency: ${Math.round(interaction.client.ws.ping)}ms\n- Memory Usage: ${memoryUsed} MB\n- Memory Total: ${memoryTotal} GB\n- CPU Usage: ${usagePercent}%\n- Discord.js: \`v${discordjsVersion}\`\n- Node.js: \`${process.version}\`` }
             );
 
-        await interaction.reply({ embeds: [infoEmbed] });
+        await interaction.reply({ embeds: [infoEmbed], ephemeral:true });
         } catch (error) {
             console.error(error);
-            await interaction.reply("An error occurred while fetching bot information");
+            await interaction.reply({ content: "An error occurred while fetching bot information", ephemeral: true});
         }
     },
 };

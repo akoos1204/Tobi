@@ -4,7 +4,7 @@ const fs = require ('fs');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('help')
-        .setDescription('List all commands or info about a specific command'),
+        .setDescription('List all commands or info.'),
 
     async execute(interaction, client) {
         const commandFolders = fs.readdirSync('./src/commands').filter(folder => !folder.startsWith('.'));
@@ -45,7 +45,7 @@ module.exports = {
 
         await interaction.reply({ embeds: [embed], components: [row], ephemeral: true });
 
-        const filter = i => i.isSelectMenu() && i.customId === 'category-select';
+        const filter = i => i.isStringSelectMenu() && i.customId === 'category-select';
         const collector = interaction.channel.createMessageComponentCollector({ filter });
 
         collector.on('collect', async i => {
@@ -53,15 +53,16 @@ module.exports = {
             const categoryCommands = commandsByCategory[selectedCategory];
 
             const categoryEmbed = new EmbedBuilder()
-                .setTitle(`${selectedCategory} Commands`)
-                .setDescription('List of available commands in this category:')
+                .setTitle(`${selectedCategory} commands`)
+                .setDescription('Here are the list of commands')
                 .setThumbnail(`${client.user.displayAvatarURL()}`)
                 .addFields(categoryCommands.map(command => ({
-                    name: command.name,
-                    value: command.description
+                    name: `\`${command.name}\``,
+                    value: command.description,
+                    inline: true,
                 })));
 
-            await i.update({ embeds: [categoryEmbed] });
+            await i.update({ embeds: [categoryEmbed], ephemeral: true });
         });
     }
 };
