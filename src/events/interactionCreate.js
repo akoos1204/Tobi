@@ -7,6 +7,11 @@ module.exports = {
 
         const command = client.commands.get(interaction.commandName);
 
+            if (command.permissions) {
+                if (interaction.guild && interaction.channel.permissionsFor(interaction.member).has(command.permissions)) { r=true } else { r=false }
+                if (!r || interaction.channel.type === ChannelType.DM) {console.log(`[${new Date().toLocaleString('hu-HU')}] `+"Not enough permission, what was the plan?"); return interaction.reply({content: "You do not have the required permissions to execute this command. => `"+command.permissions+"`", ephemeral: true})}
+            }   
+
         if (!command) return
         
         try{
