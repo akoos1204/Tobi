@@ -2,8 +2,8 @@ const { ButtonBuilder, Message, PermissionsBitField, SlashCommandBuilder } = req
 
 module.exports = {
 	data: new SlashCommandBuilder()
-        .setName('clean')
-		.setDescription("Clean/Purge/Prune up to 99 messages")
+        .setName('purge')
+		.setDescription("Purge up to 99 messages")
         .addIntegerOption(option => option.setName('amount').setDescription("Amount of messages to delete").setMinValue(0).setMaxValue(99).setRequired(true)),
 	async execute(interaction, client) {
         const amount = interaction.options.getInteger('amount');

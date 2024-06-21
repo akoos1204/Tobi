@@ -7,6 +7,12 @@ module.exports = {
         .setDescription('List all commands or info.'),
 
     async execute(interaction, client) {
+        const emojis = {
+            community: '📨',
+            dev: '🕳️',
+            //moderation: '🔨'
+        }
+
         const commandFolders = fs.readdirSync('./src/commands').filter(folder => !folder.startsWith('.'));
         const commandsByCategory = {};
 
@@ -32,7 +38,8 @@ module.exports = {
             .setPlaceholder('Select a category')
             .addOptions(...dropdownOptions.map(option => ({
                 label: option.label,
-                value: option.value
+                value: option.value,
+                emoji: emojis[option.label.toLowerCase()]
             })));
 
         const embed = new EmbedBuilder()
