@@ -10,7 +10,7 @@ module.exports = {
         const emojis = {
             community: '📨',
             dev: '🕳️',
-            //moderation: '🔨'
+            moderation: '🔨',
         }
 
         const commandFolders = fs.readdirSync('./src/commands').filter(folder => !folder.startsWith('.'));
@@ -43,6 +43,7 @@ module.exports = {
             })));
 
         const embed = new EmbedBuilder()
+            .setColor("DarkGrey")
             .setTitle('Command - Help')
             .setDescription('Select a category from the dropdown menu to view commands')
             .setThumbnail(`${client.user.displayAvatarURL()}`)
@@ -60,6 +61,7 @@ module.exports = {
             const categoryCommands = commandsByCategory[selectedCategory];
 
             const categoryEmbed = new EmbedBuilder()
+                .setColor("DarkGrey")
                 .setTitle(`${selectedCategory} commands`)
                 .setDescription('Here are the list of commands')
                 .setThumbnail(`${client.user.displayAvatarURL()}`)

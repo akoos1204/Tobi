@@ -9,6 +9,7 @@ module.exports = {
     async execute(interaction) {
         async function sendMessage (message) {
             const embed = new EmbedBuilder()
+            .setColor("DarkGrey")
             .setDescription(message);
 
             await interaction.reply({ embeds: [embed], ephemeral: true});
