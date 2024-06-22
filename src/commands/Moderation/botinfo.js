@@ -4,8 +4,8 @@ const os = require('os')
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName("botinfo")
-        .setDescription("Display's the bot information in an embed."),
+    .setName("botinfo")
+    .setDescription("Display's the bot information in an embed."),
     async execute(interaction, client) {
     try {
         const guildsCache = client.guilds.cache;

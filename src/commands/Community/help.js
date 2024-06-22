@@ -61,7 +61,7 @@ module.exports = {
             const categoryCommands = commandsByCategory[selectedCategory];
 
             const categoryEmbed = new EmbedBuilder()
-                .setColor("DarkGrey")
+                //.setColor("DarkGrey")
                 .setTitle(`${selectedCategory} commands`)
                 .setDescription('Here are the list of commands')
                 .setThumbnail(`${client.user.displayAvatarURL()}`)

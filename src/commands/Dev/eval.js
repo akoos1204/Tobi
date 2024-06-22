@@ -15,7 +15,7 @@ module.exports = {
             await interaction.reply({ embeds: [embed], ephemeral: true});
         }
 
-        if(interaction.member.id !== process.env.devid) return await sendMessage("Only for developer's");
+        if(interaction.member.id !== process.env.devid) return await interaction.reply({ content: "You don't have permission to use this command", ephemeral: true});
 
         const { options } = interaction;
 

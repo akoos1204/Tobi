@@ -8,7 +8,7 @@ module.exports = {
     .addIntegerOption(option => option.setName('amount').setDescription('The amount of messages you want to delete').setMinValue(1).setMaxValue(100).setRequired(true)),
     async execute (interaction) {
 
-        if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return interaction.reply({ content: "You dont have permission to use this command.", ephemeral: true})
+        if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return interaction.reply({ content: "You don't have permission to use this command.", ephemeral: true})
 
         let number = interaction.options.getInteger('amount');
 
