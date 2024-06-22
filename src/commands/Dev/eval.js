@@ -1,11 +1,12 @@
-const {SlashCommandBuilder, EmbedBuilder, Embed} = require("discord.js");
+const { SlashCommandBuilder, EmbedBuilder, PermissionFlagsBits } = require("discord.js");
 const { execute } = require("../Moderation/clean");
 
 module.exports = {
     data: new SlashCommandBuilder()
     .setName('eval')
     .setDescription("Evaulate a javascript code(for dev's)")
-    .addStringOption(option => option.setName('code').setDescription('The code to evaulate').setRequired(true)),
+    .addStringOption(option => option.setName('code').setDescription('The code to evaulate').setRequired(true))
+    .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
     async execute(interaction) {
         async function sendMessage (message) {
             const embed = new EmbedBuilder()

@@ -4,7 +4,7 @@ const { execute } = require("../Dev/eval");
 module.exports = {
     data: new SlashCommandBuilder()
     .setName("purge")
-    .setDescription("Purge message up to 99")
+    .setDescription("Purge messages up to 99")
     .setDMPermission(false)
     .addIntegerOption(option => option.setName('amount').setDescription('The amount of messages you want to delete').setMinValue(1).setMaxValue(100).setRequired(true)),
     async execute (interaction) {
