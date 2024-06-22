@@ -4,11 +4,12 @@ const fs = require ('fs');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('help')
+        .setDMPermission(false)
         .setDescription('List all commands or info.'),
 
     async execute(interaction, client) {
         const emojis = {
-            community: '📨',
+            info: '📨',
             dev: '🕳️',
             moderation: '🔨',
         }
