@@ -42,4 +42,3 @@ client.on("ready", async (client) => {
         console.log(`Error while loading rotating status.`);
     };
 });
-
