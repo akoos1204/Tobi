@@ -17,7 +17,7 @@ module.exports = {
             
             const embed = new EmbedBuilder()
                 .setTitle(`${user.username}'s Information`) 
-                .setColor('#2F3136')
+                .setColor('DarkGrey')
                 .setThumbnail(userAvatar)
                 .addFields({
                     name: `Joined Discord`,

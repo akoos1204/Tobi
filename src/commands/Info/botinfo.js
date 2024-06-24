@@ -46,6 +46,7 @@ module.exports = {
         const infoEmbed = new EmbedBuilder()
             .setColor("DarkGrey")
             .setTitle("Tobi's Information")
+            .setThumbnail(`${client.user.displayAvatarURL()}`)
             .setTimestamp()
             .addFields(
                 { name: "Basic Information", value: `- Developer: \`@akoos_\`\n- DevID: \`901131294476484689\`\n- Server Count: ${interaction.client.guilds.cache.size}\n- User Count: ${servercount}\n- Invite link: [Click Here](https://discord.com/oauth2/authorize?client_id=1253076040570634240&permissions=8&integration_type=0&scope=bot+applications.commands)\n- Repository: [Github](https://github.com/akoos1204/Tobi)\n- Bot Version: \`v1.0.1\`` },

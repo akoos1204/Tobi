@@ -17,7 +17,7 @@ module.exports = {
                 embeds: [
                     new EmbedBuilder()
                     .setTitle(`An error occurred`)
-                    .setColor(client.config.colors[0].red)
+                    .setColor("DarkGrey")
                     .setDescription("```\nOops! Something went wrong...\n\nPossible reasons:\n• The country is not a member of the United Nations\n• The country is not independent yet\n• The country does not exist```")
                 ], ephemeral: true
             });
