@@ -18,6 +18,8 @@
   "dependencies": {
     "@discordjs/rest": "^2.3.0",
     "axios": "^1.7.2",
+    "canvacord": "^5.1.0",
+    "child_process": "^1.0.2",
     "countryjs": "^1.8.0",
     "discord-api-types": "^0.37.90",
     "discord-arts": "^0.6.1",
